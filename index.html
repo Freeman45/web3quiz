@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>web3quiz-zone</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="app" class="container">
+      <header class="topbar">
+        <h1>web3quiz-zone</h1>
+        <div class="wallet">
+          <button id="connectBtn">Connect</button>
+          <span id="addr"></span>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel" id="ownerPanel">
+          <h2>Owner / Admin</h2>
+          <div class="row">
+            <button id="btnNonce">Get Nonce</button>
+            <button id="btnSign" disabled>Sign & Login</button>
+            <span id="authStatus">Not authenticated</span>
+          </div>
+          <form id="createForm" class="card hidden">
+            <h3>Create Campaign</h3>
+            <input id="title" placeholder="Campaign title" />
+            <input id="color" type="color" value="#4CAF50" />
+            <input id="prize" type="number" step="0.01" value="0.1" />
+            <input id="prizeAddr" placeholder="PrizePool contract address (optional)" />
+            <textarea id="questions" rows="4">[{"q":"What is the token ticker?","a":"ZAMA"},{"q":"Is FHE post-quantum?","a":"Yes"}]</textarea>
+            <button type="submit">Create</button>
+            <div id="createMsg"></div>
+          </form>
+        </section>
+
+        <section class="panel" id="browse">
+          <h2>Active Campaigns</h2>
+          <div id="campaignsGrid" class="grid"></div>
+        </section>
+
+        <section class="panel hidden" id="joinPanel">
+          <h2 id="campaignTitle"></h2>
+          <div id="campaignMeta"></div>
+          <form id="answerForm"></form>
+          <div class="row">
+            <button id="encryptSubmit">Encrypt & Submit</button>
+            <button id="backToList">Back</button>
+          </div>
+          <div id="joinMsg"></div>
+        </section>
+
+      </main>
+
+      <footer>
+        <small>web3quiz-zone • FHE-enabled quiz platform (demo)</small>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

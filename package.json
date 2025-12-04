@@ -1,0 +1,30 @@
+{
+  "name": "web3quiz-zone",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"nodemon --watch server --exec node server/index.js\" \"vite\"",
+    "start": "node server/index.js",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy:contract": "hardhat run --network sepolia scripts/deploy_prizepool.js"
+  },
+  "dependencies": {
+    "@zama-fhe/relayer-sdk": "^1.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.8.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "sqlite": "^4.1.2",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "nodemon": "^2.0.22",
+    "vite": "^5.0.0",
+    "hardhat": "^2.18.0",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0"
+  }
+}
